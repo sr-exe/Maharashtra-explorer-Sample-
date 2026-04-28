@@ -36,8 +36,8 @@ Maharashtra-Explorer/
 
 1. Download or clone the repository:
    ```bash
-   git clone https://github.com/your-username/maharashtra-explorer.git
-   cd maharashtra-explorer
+   https://github.com/sr-exe/Maharashtra-explorer-Sample-.git
+   cd maharashtra-explorer-Sample
 │── README.md
 
 3. Run the project:
