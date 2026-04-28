@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maharashtra Explorer — Cities, Culture & Heritage</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-emblem">🕌</div>
+    <div class="loader-text">Maharashtra Explorer</div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <span class="nav-logo">⚜</span>
+    <span class="nav-title">Maharashtra Explorer</span>
+  </div>
+  <div class="nav-links">
+    <a href="#home" class="nav-link">Home</a>
+    <a href="#cities" class="nav-link">Cities</a>
+    <a href="#map-section" class="nav-link">Map</a>
+    <a href="#heritage" class="nav-link">Heritage</a>
+    <a href="#about" class="nav-link">About</a>
+  </div>
+  <div class="nav-toggle" id="navToggle">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="hero-pattern"></div>
+    <div class="hero-glow"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-badge animate-in" style="--delay:0.2s">MAHARASHTRA, INDIA</div>
+    <h1 class="hero-title animate-in" style="--delay:0.4s">
+      Land of <em>Forts</em>,<br>
+      Festivals &<br>
+      <span class="hero-highlight">Flavours</span>
+    </h1>
+    <p class="hero-sub animate-in" style="--delay:0.6s">Explore 36 districts, centuries of history,<br>and the vibrant soul of India's richest state.</p>
+    <div class="hero-cta animate-in" style="--delay:0.8s">
+      <a href="#cities" class="btn-primary">Explore Cities</a>
+      <a href="#map-section" class="btn-ghost">View Map</a>
+    </div>
+    <div class="hero-stats animate-in" style="--delay:1s">
+      <div class="stat"><span class="stat-num" data-target="36">0</span><span class="stat-label">Districts</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="400">0</span><span class="stat-label">+ Forts</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num" data-target="7">0</span><span class="stat-label">UNESCO Sites</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll to explore</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span>Mumbai • Pune • Nashik • Aurangabad • Nagpur • Kolhapur • Solapur • Thane • Satara • Sangli • Raigad • Konkan •</span>
+    <span>Mumbai • Pune • Nashik • Aurangabad • Nagpur • Kolhapur • Solapur • Thane • Satara • Sangli • Raigad • Konkan •</span>
+  </div>
+</div>
+
+<!-- CITIES SECTION -->
+<section id="cities" class="cities-section">
+  <div class="section-header">
+    <div class="section-tag">Discover</div>
+    <h2 class="section-title">Cities of Maharashtra</h2>
+    <p class="section-sub">Each city a universe of its own — ancient, modern, sacred, coastal.</p>
+  </div>
+
+  <!-- SEARCH & FILTER -->
+  <div class="filter-bar">
+    <input type="text" class="search-input" id="searchInput" placeholder="Search cities…" />
+    <div class="filter-chips">
+      <button class="chip active" data-filter="all">All</button>
+      <button class="chip" data-filter="metro">Metro</button>
+      <button class="chip" data-filter="heritage">Heritage</button>
+      <button class="chip" data-filter="coastal">Coastal</button>
+      <button class="chip" data-filter="pilgrimage">Pilgrimage</button>
+      <button class="chip" data-filter="hill">Hill Station</button>
+    </div>
+  </div>
+
+  <div class="cities-grid" id="citiesGrid">
+    <!-- Cards injected by JS -->
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section id="map-section" class="map-section">
+  <div class="section-header light">
+    <div class="section-tag">Interactive</div>
+    <h2 class="section-title">Maharashtra on the Map</h2>
+    <p class="section-sub">Click any marker to explore that city's unique story.</p>
+  </div>
+  <div class="map-wrapper">
+    <div id="map"></div>
+    <div class="map-sidebar" id="mapSidebar">
+      <div class="map-sidebar-default">
+        <div class="map-sidebar-icon">🗺️</div>
+        <h3>Click a city on the map</h3>
+        <p>Discover what each city is famous for — food, forts, festivals & more.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HERITAGE SECTION -->
+<section id="heritage" class="heritage-section">
+  <div class="section-header">
+    <div class="section-tag">UNESCO & Beyond</div>
+    <h2 class="section-title">Heritage of Maharashtra</h2>
+    <p class="section-sub">Ancient caves, royal forts, and sacred temples that define a civilisation.</p>
+  </div>
+  <div class="heritage-grid" id="heritageGrid"></div>
+</section>
+
+<!-- FESTIVALS STRIP -->
+<section class="festivals-section">
+  <div class="section-header light">
+    <div class="section-tag">Culture</div>
+    <h2 class="section-title">Festivals & Traditions</h2>
+  </div>
+  <div class="festivals-track" id="festivalsTrack"></div>
+</section>
+
+<!-- CUISINE SECTION -->
+<section class="cuisine-section">
+  <div class="section-header">
+    <div class="section-tag">Flavours</div>
+    <h2 class="section-title">Famous Foods of Maharashtra</h2>
+  </div>
+  <div class="cuisine-grid" id="cuisineGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-tag">About Maharashtra</div>
+      <h2>The Land of Warriors & Wisdom</h2>
+      <p>Maharashtra is India's second-largest state by area and third-largest by population. Bordered by the Arabian Sea to the west, it is home to Mumbai — India's financial capital — and Pune, its cultural twin. The state gave birth to Chhatrapati Shivaji Maharaj's legendary Maratha Empire, and its forts stand as testament to an indomitable spirit.</p>
+      <p>From the sun-drenched Konkan coast to the misty Sahyadri hills, from the bustling streets of Nagpur to the pilgrimage towns of Pandharpur and Shirdi — Maharashtra contains multitudes.</p>
+      <div class="about-facts">
+        <div class="fact"><span class="fact-num">112,374</span><span>km² Area</span></div>
+        <div class="fact"><span class="fact-num">~126M</span><span>Population</span></div>
+        <div class="fact"><span class="fact-num">1674</span><span>Maratha Empire Founded</span></div>
+      </div>
+    </div>
+    <div class="about-image-grid">
+      <div class="img-card tall" style="background: linear-gradient(135deg,#c9a96e,#8b5e3c)">
+        <span class="img-label">🏯 Raigad Fort</span>
+      </div>
+      <div class="img-card" style="background: linear-gradient(135deg,#2c6e49,#52b788)">
+        <span class="img-label">🌊 Konkan Coast</span>
+      </div>
+      <div class="img-card" style="background: linear-gradient(135deg,#4a1942,#c77dff)">
+        <span class="img-label">🕍 Ajanta Caves</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">⚜</span>
+      <span>Maharashtra Explorer</span>
+    </div>
+    <p class="footer-tagline">Celebrating the land of Shivaji, Ambedkar & Tukaram.</p>
+    <div class="footer-links">
+      <a href="#home">Home</a>
+      <a href="#cities">Cities</a>
+      <a href="#map-section">Map</a>
+      <a href="#heritage">Heritage</a>
+    </div>
+    <p class="footer-copy">Built with ❤️ to celebrate Maharashtra's glory. Information sourced from public domain.</p>
+  </div>
+</footer>
+
+<!-- CITY DETAIL MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal" id="modal">
+    <button class="modal-close" id="modalClose">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,408 @@
+// Maharashtra Cities Data
+const CITIES = [
+  {
+    id: "mumbai",
+    name: "Mumbai",
+    subtitle: "City of Dreams",
+    category: ["metro", "coastal"],
+    lat: 19.0760, lng: 72.8777,
+    tagline: "The financial capital that never sleeps",
+    color: "#FF6B35",
+    gradient: "linear-gradient(135deg,#FF6B35,#F7931E)",
+    emoji: "🌆",
+    region: "Konkan",
+    famous: ["Gateway of India", "Marine Drive", "Bollywood", "Dharavi", "Siddhivinayak Temple", "Elephanta Caves"],
+    description: "Mumbai is India's largest city and its financial, commercial, and entertainment capital. Built on a series of islands, it is known for its iconic skyline, bustling markets, and the Bollywood film industry.",
+    mustSee: [
+      { name: "Gateway of India", desc: "Iconic arch monument on the harbour, built in 1924 for King George V's visit." },
+      { name: "Marine Drive", desc: "The 'Queen's Necklace' — 3.6 km promenade along the Arabian Sea." },
+      { name: "Elephanta Caves", desc: "UNESCO World Heritage Site with rock-cut temples dedicated to Lord Shiva." },
+      { name: "Chhatrapati Shivaji Terminus", desc: "A UNESCO heritage Victorian Gothic railway station and architectural marvel." },
+      { name: "Juhu Beach", desc: "The city's most famous beach, known for street food and sunsets." }
+    ],
+    food: ["Vada Pav", "Pav Bhaji", "Bhel Puri", "Bombay Sandwich", "Misal Pav", "Keema Pav"],
+    festivals: ["Ganesh Chaturthi", "Diwali", "Navratri", "Eid"],
+    bestTime: "November – February",
+    funFact: "Mumbai's local train network carries over 7 million passengers daily — more than many countries' entire rail networks.",
+    history: "Originally a group of seven islands inhabited by the Koli fishing community, Mumbai was gifted to Charles II of England as part of Catherine of Braganza's dowry in 1661. The British East India Company leased it and developed it into a major port city."
+  },
+  {
+    id: "pune",
+    name: "Pune",
+    subtitle: "Oxford of the East",
+    category: ["metro", "heritage"],
+    lat: 18.5204, lng: 73.8567,
+    tagline: "Where tradition meets modern intellect",
+    color: "#6C63FF",
+    gradient: "linear-gradient(135deg,#6C63FF,#3ECFCF)",
+    emoji: "🎓",
+    region: "Deccan",
+    famous: ["Shaniwar Wada", "Aga Khan Palace", "Sinhagad Fort", "Osho Ashram", "Dagdusheth Ganapati"],
+    description: "Pune is Maharashtra's second city — a hub of education, IT, and culture. Once the seat of the Peshwa rulers of the Maratha Empire, it blends its glorious past with a dynamic young population.",
+    mustSee: [
+      { name: "Shaniwar Wada", desc: "18th-century fortification and seat of the Peshwa rulers, now a historical monument." },
+      { name: "Aga Khan Palace", desc: "Where Mahatma Gandhi and Kasturba Gandhi were imprisoned during the Quit India Movement." },
+      { name: "Sinhagad Fort", desc: "Historic hill fort associated with the heroic tale of Tanaji Malusare." },
+      { name: "Osho International Meditation Resort", desc: "World-renowned spiritual centre founded by Osho (Rajneesh)." },
+      { name: "Dagdusheth Halwai Ganapati Temple", desc: "One of Pune's most famous and richly adorned Ganesh temples." }
+    ],
+    food: ["Misal Pav", "Vada Pav", "Pithla Bhakri", "Bhakri", "Mastani (milkshake)", "Sabudana Khichdi"],
+    festivals: ["Ganesh Chaturthi", "Sawai Gandharva Festival", "Pune Festival"],
+    bestTime: "October – March",
+    funFact: "Pune has more than 300 educational institutions and over 100 IT companies, earning it the nickname 'IT Hub of Maharashtra'.",
+    history: "Pune served as the capital of the Maratha Confederacy under the Peshwas from the 18th century. Chhatrapati Shivaji Maharaj spent part of his youth here, and his mother Jijabai played a pivotal role in shaping his character."
+  },
+  {
+    id: "aurangabad",
+    name: "Aurangabad",
+    subtitle: "City of Gates",
+    category: ["heritage", "pilgrimage"],
+    lat: 19.8762, lng: 75.3433,
+    tagline: "Gateway to the Ajanta & Ellora Caves",
+    color: "#D4AF37",
+    gradient: "linear-gradient(135deg,#D4AF37,#C0783C)",
+    emoji: "🕌",
+    region: "Marathwada",
+    famous: ["Ajanta Caves", "Ellora Caves", "Bibi ka Maqbara", "Daulatabad Fort", "Panchakki"],
+    description: "Aurangabad (now officially Chhatrapati Sambhajinagar) is Maharashtra's tourism capital, sitting amid a landscape of Mughal monuments and ancient Buddhist caves. It was named after Emperor Aurangzeb, who made it his capital.",
+    mustSee: [
+      { name: "Ajanta Caves", desc: "30 rock-cut Buddhist cave monuments dating from 2nd century BCE — UNESCO World Heritage Site." },
+      { name: "Ellora Caves", desc: "34 monasteries and temples spanning Buddhist, Hindu, and Jain traditions — UNESCO site." },
+      { name: "Bibi ka Maqbara", desc: "A near-replica of the Taj Mahal, built by Aurangzeb's son for his mother." },
+      { name: "Daulatabad Fort", desc: "Remarkably strategic 14th-century hill fort, once renamed Devagiri." },
+      { name: "Panchakki", desc: "17th-century water mill and Sufi shrine complex with a large garden and pool." }
+    ],
+    food: ["Naan Qalia", "Sheer Khurma", "Tahri", "Biryani", "Bhadang", "Peshwai Dal"],
+    festivals: ["Ajanta-Ellora Festival", "Eid ul-Fitr", "Aurangabad Festival"],
+    bestTime: "October – March",
+    funFact: "The Ajanta Caves were completely lost to the outside world for over 1,000 years before being accidentally rediscovered in 1819 by a British officer on a tiger hunt.",
+    history: "Founded in the early 17th century, Aurangabad rose to prominence under the Mughal Emperor Aurangzeb who shifted his capital here. Prior to that, the region's Devagiri (Daulatabad) was once briefly the capital of the Delhi Sultanate."
+  },
+  {
+    id: "nashik",
+    name: "Nashik",
+    subtitle: "Wine Capital of India",
+    category: ["pilgrimage", "heritage"],
+    lat: 19.9975, lng: 73.7898,
+    tagline: "Sacred rivers and verdant vineyards",
+    color: "#7B2D8B",
+    gradient: "linear-gradient(135deg,#7B2D8B,#C62A88)",
+    emoji: "🍇",
+    region: "North Maharashtra",
+    famous: ["Kumbh Mela", "Trimbakeshwar Temple", "Sula Vineyards", "Panchvati", "Saptashrungi Temple"],
+    description: "Nashik is one of India's holiest cities — on the banks of the Godavari — and also its wine capital. It hosts the Kumbh Mela every 12 years, drawing tens of millions of pilgrims.",
+    mustSee: [
+      { name: "Trimbakeshwar Temple", desc: "One of the 12 sacred Jyotirlingas of Lord Shiva, at the source of the Godavari river." },
+      { name: "Panchvati", desc: "Area where Lord Rama lived during his exile; contains Sita Gumpha and Ram Kund." },
+      { name: "Sula Vineyards", desc: "India's most famous winery — tours, tastings, and a stunning resort." },
+      { name: "Pandavleni Caves", desc: "Group of 24 ancient rock-cut caves dating back to 1st century BCE." },
+      { name: "Saptashrungi Temple", desc: "Goddess Saptashrungi enshrined on a 7-peaked mountain — major pilgrimage site." }
+    ],
+    food: ["Sabudana Vada", "Piyush", "Misal", "Zunka Bhakri", "Grape products", "Kanda Bhaji"],
+    festivals: ["Kumbh Mela", "Ram Navami", "Nashik Grape Festival", "Sula Fest"],
+    bestTime: "October – March",
+    funFact: "Nashik accounts for nearly 40% of India's total wine production, with over 50 wineries operating in the district.",
+    history: "Nashik's history stretches back to the Ramayana — it is believed to be where Lakshmana cut off the nose (nashik = nose) of the demoness Shurpanakha. The city has been a major pilgrimage site for millennia."
+  },
+  {
+    id: "nagpur",
+    name: "Nagpur",
+    subtitle: "Orange City",
+    category: ["metro"],
+    lat: 21.1458, lng: 79.0882,
+    tagline: "Heart of India — literally at the center",
+    color: "#FF8C00",
+    gradient: "linear-gradient(135deg,#FF8C00,#FF4500)",
+    emoji: "🍊",
+    region: "Vidarbha",
+    famous: ["Deekshabhoomi", "Raman Science Centre", "Ambazari Lake", "Zero Mile Stone", "Nagpur Oranges"],
+    description: "Nagpur is the 'Zero Mile City' — a marker near here indicates the geographic center of India. Famous for its oranges, it is also the winter capital of Maharashtra and home to Deekshabhoomi, where Dr. B.R. Ambedkar converted to Buddhism.",
+    mustSee: [
+      { name: "Deekshabhoomi", desc: "Sacred site where Dr. B.R. Ambedkar converted to Buddhism with 600,000 followers in 1956." },
+      { name: "Zero Mile Stone", desc: "Colonial-era marker indicating the geographic center of British India." },
+      { name: "Ramtek Fort & Temple", desc: "Ancient temple and fort where Lord Rama rested during his exile, 40 km from Nagpur." },
+      { name: "Tadoba Andhari Tiger Reserve", desc: "Maharashtra's largest and oldest national park, a premier tiger safari destination." },
+      { name: "Ambazari Lake", desc: "Nagpur's largest lake with a beautiful garden, ideal for evening walks." }
+    ],
+    food: ["Nagpuri Saoji Chicken", "Tarri Poha", "Orange Barfi", "Nagpuri Halwa", "Varhadi Mutton", "Gavran Chicken"],
+    festivals: ["Diwali", "Ambedkar Jayanti", "Nagpur Orange Festival"],
+    bestTime: "October – February",
+    funFact: "Nagpur oranges are so famous they inspired the city's nickname. The Nagpur Mandarin orange is given a Geographical Indication (GI) tag.",
+    history: "Nagpur was the capital of the Bhonsale dynasty of Marathas from 1743. After the Third Anglo-Maratha War, it came under British control. It was later the headquarters of the Central Provinces."
+  },
+  {
+    id: "kolhapur",
+    name: "Kolhapur",
+    subtitle: "City of Mahalakshmi",
+    category: ["heritage", "pilgrimage"],
+    lat: 16.7050, lng: 74.2433,
+    tagline: "Wrestling, royalty, and divine grace",
+    color: "#E91E8C",
+    gradient: "linear-gradient(135deg,#E91E8C,#8B0045)",
+    emoji: "🤼",
+    region: "South Maharashtra",
+    famous: ["Mahalakshmi Temple", "New Palace Museum", "Kolhapuri Chappals", "Kolhapuri Cuisine", "Panhala Fort"],
+    description: "Kolhapur is known for its wrestling tradition, the sacred Mahalakshmi Temple, unique Kolhapuri cuisine, and the famous Kolhapuri chappal (sandal). The Chhatrapati royal family continues to be influential here.",
+    mustSee: [
+      { name: "Mahalakshmi Temple (Ambabai)", desc: "One of the Shakti Peethas — an ancient temple of Goddess Mahalakshmi, always bustling with devotees." },
+      { name: "New Palace Museum", desc: "The royal palace of the Kolhapur Chhatrapati dynasty, now a museum with royal artifacts." },
+      { name: "Panhala Fort", desc: "Large hill fort where Chhatrapati Shivaji spent considerable time, 20 km from Kolhapur." },
+      { name: "Rankala Lake", desc: "Scenic lake at the heart of the city, perfect for evening strolls." },
+      { name: "Shahu Market", desc: "Famous for Kolhapuri chappals, bangles, and Shahu silverware." }
+    ],
+    food: ["Kolhapuri Chicken", "Tambda Rassa", "Pandhra Rassa", "Sol Kadhi", "Misal", "Bhakri"],
+    festivals: ["Diwali", "Ganesh Chaturthi", "Mahalakshmi Festival", "Navratri"],
+    bestTime: "October – March",
+    funFact: "Kolhapuri cuisine is renowned for its fiery spice — the 'Kolhapuri masala' is considered one of India's hottest traditional spice blends.",
+    history: "Kolhapur was a princely state ruled by descendants of Chhatrapati Shivaji Maharaj for centuries. The enlightened ruler Chhatrapati Shahu Maharaj (1894–1922) was a champion of social justice, reservation, and women's empowerment."
+  },
+  {
+    id: "shirdi",
+    name: "Shirdi",
+    subtitle: "Abode of Sai Baba",
+    category: ["pilgrimage"],
+    lat: 19.7667, lng: 74.4776,
+    tagline: "Faith beyond boundaries",
+    color: "#FF9500",
+    gradient: "linear-gradient(135deg,#FF9500,#FF5500)",
+    emoji: "🙏",
+    region: "Ahmednagar",
+    famous: ["Sai Baba Samadhi Temple", "Dwarkamai Mosque", "Chavadi", "Gurusthan"],
+    description: "Shirdi is one of India's most visited pilgrimage sites, home to the shrine of Sai Baba who taught unity of all religions. Millions of devotees of all faiths visit annually.",
+    mustSee: [
+      { name: "Sai Baba Samadhi Mandir", desc: "Marble shrine housing Sai Baba's samadhi, visited by lakhs of devotees daily." },
+      { name: "Dwarkamai", desc: "The mosque where Sai Baba spent most of his life, still with a sacred Dhuni fire." },
+      { name: "Chavadi", desc: "Hall where Sai Baba slept on alternate nights — beautifully preserved." },
+      { name: "Gurusthan", desc: "Where Sai Baba was first spotted as a young man sitting under a neem tree." }
+    ],
+    food: ["Prasad Dal", "Sabudana Khichdi", "Puran Poli", "Temple Prasad"],
+    festivals: ["Ram Navami", "Guru Pournima", "Dussehra", "Eid"],
+    bestTime: "October – March (avoid summer)",
+    funFact: "The Shirdi Sai Baba temple trust collects donations worth crores daily, making it one of the wealthiest temples in India.",
+    history: "Sai Baba arrived in Shirdi around 1858 as a young man. He lived in a dilapidated mosque he called 'Dwarkamai' for over 60 years, preaching love, forgiveness, and devotion to a single God."
+  },
+  {
+    id: "mahabaleshwar",
+    name: "Mahabaleshwar",
+    subtitle: "Queen of Hill Stations",
+    category: ["hill", "heritage"],
+    lat: 17.9237, lng: 73.6586,
+    tagline: "Strawberries, mist, and panoramic valleys",
+    color: "#2E8B57",
+    gradient: "linear-gradient(135deg,#2E8B57,#20B2AA)",
+    emoji: "🍓",
+    region: "Satara",
+    famous: ["Strawberry Farms", "Venna Lake", "Pratapgad Fort", "Arthur's Seat", "Wilson Point"],
+    description: "Mahabaleshwar is Maharashtra's premier hill station at 1,372m elevation, famous for its strawberries, sweeping valley views, and several rivers originating from its plateau.",
+    mustSee: [
+      { name: "Arthur's Seat", desc: "The 'Queen of all Points' — dramatic cliff viewpoint overlooking the Konkan coast." },
+      { name: "Pratapgad Fort", desc: "Historic fort where Shivaji famously defeated and killed Afzal Khan in 1659." },
+      { name: "Venna Lake", desc: "Picturesque lake in the heart of town — boating and horse rides available." },
+      { name: "Wilson Point (Sunrise Point)", desc: "The highest point in Mahabaleshwar, ideal for sunrise views." },
+      { name: "Strawberry Farms", desc: "Tour the farms from Dec–March and pick fresh strawberries." }
+    ],
+    food: ["Strawberries & Cream", "Corn on Cob", "Mulberry Juice", "Mapro Products", "Bhutta", "Chikki"],
+    festivals: ["Strawberry Festival", "Diwali"],
+    bestTime: "October – June (rainy season very lush)",
+    funFact: "Five rivers originate from the Mahabaleshwar plateau: Krishna, Koyna, Venna, Savitri, and Gayatri.",
+    history: "Mahabaleshwar was developed as a hill station by the British in 1828. The ancient Mahabaleshwar Temple, dedicated to Lord Shiva, gives the town its name and is believed to be over 1,000 years old."
+  },
+  {
+    id: "lonavala",
+    name: "Lonavala",
+    subtitle: "City of Chikki & Fudge",
+    category: ["hill"],
+    lat: 18.7481, lng: 73.4072,
+    tagline: "The weekend gateway of Mumbai & Pune",
+    color: "#228B22",
+    gradient: "linear-gradient(135deg,#228B22,#6B8E23)",
+    emoji: "⛰️",
+    region: "Pune",
+    famous: ["Bhushi Dam", "Tiger's Leap", "Khandala", "Karla Caves", "Bhaja Caves", "Chikki"],
+    description: "Lonavala-Khandala is the iconic twin hill station sitting on the Western Ghats between Mumbai and Pune. Famous for waterfalls in monsoon, ancient caves, and the addictive Lonavala Chikki.",
+    mustSee: [
+      { name: "Tiger's Leap (Vagnai Point)", desc: "A cliff that resembles a leaping tiger — breathtaking views over the Sahyadri valley." },
+      { name: "Bhushi Dam", desc: "Popular overflow dam where crowds wade in monsoon waterfall cascades." },
+      { name: "Karla Caves", desc: "Ancient rock-cut Buddhist chaityas dating from 2nd century BCE." },
+      { name: "Bhaja Caves", desc: "18 rock-cut Buddhist caves with the oldest known wooden umbrella carving." },
+      { name: "Rajmachi Fort", desc: "Twin forts Shrivardhan and Manaranjan — popular trekking destination." }
+    ],
+    food: ["Chikki (peanut brittle)", "Fudge", "Chana", "Corn", "Maggi at viewpoints"],
+    festivals: ["Monsoon visits", "Year-round"],
+    bestTime: "June – September (monsoon), October – February",
+    funFact: "During monsoon, Lonavala receives over 3,000mm of rainfall — one of the highest in Maharashtra — turning every hillside into a waterfall.",
+    history: "The Lonavala region was historically part of the Deccan Plateau under various dynasties. During the British era, it became a retreat for officers escaping Pune's summer heat."
+  },
+  {
+    id: "solapur",
+    name: "Solapur",
+    subtitle: "City of Textiles",
+    category: ["heritage"],
+    lat: 17.6599, lng: 75.9064,
+    tagline: "Chaddars, bidis, and the great Pandharpur",
+    color: "#B5470D",
+    gradient: "linear-gradient(135deg,#B5470D,#F0A500)",
+    emoji: "🧵",
+    region: "South Maharashtra",
+    famous: ["Pandharpur Temple", "Solapur Fort", "Solapur Chaddar", "Siddheshwar Temple"],
+    description: "Solapur is a major industrial city known for its textile industry (famous 'Solapur chaddar' bedsheets), bidi industry, and its proximity to Pandharpur, the spiritual capital of Maharashtra.",
+    mustSee: [
+      { name: "Pandharpur (Vitthal Temple)", desc: "Most sacred pilgrimage in Maharashtra — the Wari procession draws millions annually." },
+      { name: "Solapur Fort", desc: "15th-century fort with temples and a beautiful step-well inside." },
+      { name: "Siddheshwar Temple", desc: "Beautiful temple with a sacred lake, one of Maharashtra's Jyotirlingas." },
+      { name: "Hipparga Lake", desc: "Large reservoir providing scenic views and birdwatching." }
+    ],
+    food: ["Shengdana Chutney", "Jolada Rotti", "Bhakri", "Halu Obbattu", "Sev Bhaji"],
+    festivals: ["Ashadhi Ekadashi Wari", "Kartiki Ekadashi Wari", "Diwali"],
+    bestTime: "October – February",
+    funFact: "The Pandharpur Wari is one of the world's largest religious processions — over a million pilgrims walk on foot from various starting points to reach Pandharpur on Ekadashi.",
+    history: "Solapur's Pandharpur was the spiritual center of the Bhakti movement. Saints like Dnyaneshwar, Namdev, Eknath, and Tukaram composed devotional poetry (abhangas) that shaped Marathi literature."
+  },
+  {
+    id: "raigad",
+    name: "Raigad",
+    subtitle: "Capital of Shivaji's Empire",
+    category: ["heritage"],
+    lat: 18.2333, lng: 73.4411,
+    tagline: "Where Chhatrapati Shivaji was crowned",
+    color: "#8B0000",
+    gradient: "linear-gradient(135deg,#8B0000,#DAA520)",
+    emoji: "🏯",
+    region: "Konkan",
+    famous: ["Raigad Fort", "Coronation Throne", "Jagdishwar Temple", "Takmak Tok"],
+    description: "Raigad Fort was the capital of Chhatrapati Shivaji Maharaj's Maratha Empire. It is where he was crowned in 1674, establishing the Hindavi Swarajya. Perched at 820m, it is accessed by a ropeway.",
+    mustSee: [
+      { name: "Raigad Fort", desc: "The majestic capital of Shivaji's empire — throne room, palace ruins, and the royal bazaar." },
+      { name: "Takmak Tok", desc: "The cliff from which traitors were thrown — a chilling reminder of justice Shivaji-style." },
+      { name: "Samadhi of Shivaji Maharaj", desc: "The sacred burial site of Chhatrapati Shivaji Maharaj." },
+      { name: "Jagdishwar Temple", desc: "Ancient Shiva temple inside the fort, maintained by Shivaji himself." }
+    ],
+    food: ["Konkan Fish Curry", "Sol Kadhi", "Malvani Cuisine", "Kokum Sharbat"],
+    festivals: ["Shiv Jayanti", "Raigad Utsav"],
+    bestTime: "October – February",
+    funFact: "Shivaji Maharaj's coronation at Raigad in 1674 was one of the most elaborate ceremonies in Indian history, reportedly costing 1.5 crore hons (gold coins) and attended by thousands of nobles.",
+    history: "Raigad was originally known as Rairi and was captured by Shivaji in 1656. He redesigned it entirely, making it one of the most formidable and ingeniously planned forts in the Deccan."
+  },
+  {
+    id: "alibaug",
+    name: "Alibaug",
+    subtitle: "Mumbai's Beach Retreat",
+    category: ["coastal"],
+    lat: 18.6414, lng: 72.8722,
+    tagline: "Sea, sun, and Kolaba Fort",
+    color: "#00BFFF",
+    gradient: "linear-gradient(135deg,#00BFFF,#0080FF)",
+    emoji: "🏖️",
+    region: "Konkan",
+    famous: ["Alibaug Beach", "Kolaba Fort", "Kihim Beach", "Nagaon Beach"],
+    description: "Alibaug is Raigad district's coastal gem — a laid-back beach town just a ferry ride from Mumbai, known for its historical sea fort, black-sand beaches, and fresh seafood.",
+    mustSee: [
+      { name: "Kolaba Fort", desc: "Sea fort accessible by foot at low tide — built by Chhatrapati Shivaji Maharaj in 1680." },
+      { name: "Alibaug Beach", desc: "The main beach — black sand and a serene Arabian Sea view." },
+      { name: "Kihim Beach", desc: "Quiet, less-crowded beach lined with casuarina trees — perfect for birdwatching." },
+      { name: "Murud-Janjira Fort", desc: "Invincible sea fort 50 km away — never conquered in its history." }
+    ],
+    food: ["Malvani Fish Curry", "Kolambi (Prawn) Bhajji", "Sol Kadhi", "Fried Bombay Duck", "Surmai Fry"],
+    festivals: ["Ganesh Chaturthi", "Navratri", "Beach festivals"],
+    bestTime: "October – March",
+    funFact: "Murud-Janjira Fort near Alibaug is the only fort on India's west coast that was never captured — it resisted the Marathas, Portuguese, and British.",
+    history: "The Konkan coast around Alibaug was central to Shivaji's naval strategy. He built a series of sea forts — including Kolaba, Vijaydurg, and Sindhudurg — to control maritime trade and defend against the Portuguese and Siddis."
+  }
+];
+
+const HERITAGE_SITES = [
+  {
+    name: "Ajanta Caves",
+    location: "Aurangabad",
+    year: "2nd century BCE – 6th century CE",
+    type: "UNESCO World Heritage Site",
+    desc: "30 rock-cut Buddhist cave monuments with extraordinary paintings and sculptures. The murals are considered masterpieces of Buddhist religious art.",
+    emoji: "🏛️",
+    color: "#8B4513"
+  },
+  {
+    name: "Ellora Caves",
+    location: "Aurangabad",
+    year: "600–1000 CE",
+    type: "UNESCO World Heritage Site",
+    desc: "34 caves representing Buddhist, Hindu, and Jain traditions. The Kailasa Temple (Cave 16) is the world's largest monolithic rock excavation.",
+    emoji: "⛩️",
+    color: "#696969"
+  },
+  {
+    name: "Raigad Fort",
+    location: "Raigad District",
+    year: "17th century",
+    type: "Maratha Heritage",
+    desc: "Capital of Chhatrapati Shivaji Maharaj's Maratha Empire. The coronation of Shivaji in 1674 took place here, marking the birth of Hindavi Swarajya.",
+    emoji: "🏯",
+    color: "#8B0000"
+  },
+  {
+    name: "Chhatrapati Shivaji Terminus",
+    location: "Mumbai",
+    year: "1887",
+    type: "UNESCO World Heritage Site",
+    desc: "A stunning Victorian Gothic railway station designed by F.W. Stevens. A masterpiece blending Italian Gothic, Victorian, and traditional Indian architectural styles.",
+    emoji: "🚉",
+    color: "#4A4A8A"
+  },
+  {
+    name: "Elephanta Caves",
+    location: "Mumbai Harbour",
+    year: "5th–8th century CE",
+    type: "UNESCO World Heritage Site",
+    desc: "Rock-cut cave temples dedicated to Lord Shiva on Elephanta Island. The Trimurti — a 6m high sculpture of Shiva's three aspects — is the centrepiece.",
+    emoji: "🐘",
+    color: "#2F4F4F"
+  },
+  {
+    name: "Daulatabad Fort",
+    location: "Aurangabad",
+    year: "12th century",
+    type: "Medieval Fort",
+    desc: "One of the most formidable hill forts in the Deccan, designed with concentric rings of defense, a moat, and a pitch-dark labyrinthine passage.",
+    emoji: "🗼",
+    color: "#556B2F"
+  },
+  {
+    name: "Pandharpur Temple",
+    location: "Solapur",
+    year: "Ancient (reconstructed 13th c.)",
+    type: "Pilgrimage Site",
+    desc: "The temple of Lord Vitthal (Vithoba), spiritual capital of Maharashtra. Centre of the Varkari bhakti movement and the famous Wari pilgrimage.",
+    emoji: "🛕",
+    color: "#DAA520"
+  },
+  {
+    name: "Sinhagad Fort",
+    location: "Pune",
+    year: "2000+ years",
+    type: "Maratha Heritage",
+    desc: "Site of the heroic Battle of Sinhagad (1670) where Tanaji Malusare gave his life to capture it for Shivaji. Famous quote: 'Gad ala pan Sinha gela.'",
+    emoji: "🦁",
+    color: "#8B6914"
+  }
+];
+
+const FESTIVALS = [
+  { name: "Ganesh Chaturthi", desc: "10-day festival celebrating Lord Ganesha. Mumbai's celebrations are world-famous.", emoji: "🐘", season: "August–September" },
+  { name: "Gudi Padwa", desc: "Maharashtrian New Year marked by raising a Gudi (flag) outside homes.", emoji: "🎋", season: "March–April" },
+  { name: "Narali Pournima", desc: "Fishermen's festival offering coconuts to the sea for a safe fishing season.", emoji: "🥥", season: "August" },
+  { name: "Diwali", desc: "Festival of lights celebrated with faral (snack platters), Lakshmi puja, and fireworks.", emoji: "🪔", season: "October–November" },
+  { name: "Wari Pilgrimage", desc: "Millions walk on foot to Pandharpur twice a year to see Lord Vitthal.", emoji: "🚶", season: "June & November" },
+  { name: "Kumbh Mela Nashik", desc: "Massive religious gathering held every 12 years on the banks of Godavari.", emoji: "🌊", season: "Every 12 years" },
+  { name: "Lavani Festival", desc: "Celebration of Maharashtra's traditional dance-music form — sensuous and powerful.", emoji: "💃", season: "Year-round shows" },
+  { name: "Ellora-Ajanta Festival", desc: "Classical music and dance performed against the backdrop of the ancient caves.", emoji: "🎶", season: "March" }
+];
+
+const CUISINES = [
+  { name: "Vada Pav", city: "Mumbai", desc: "The quintessential Mumbai street food — spiced potato fritter in a bun.", emoji: "🍔", color: "#FF6B35" },
+  { name: "Puran Poli", city: "All Maharashtra", desc: "Sweet flatbread stuffed with jaggery and chana dal — a festive staple.", emoji: "🫓", color: "#D4AF37" },
+  { name: "Misal Pav", city: "Pune / Nashik", desc: "Spicy sprouted moth bean curry topped with farsan, onions, and served with bread.", emoji: "🌶️", color: "#C0392B" },
+  { name: "Kolhapuri Chicken", city: "Kolhapur", desc: "Fiery dry chicken preparation with the legendary Kolhapuri masala spice blend.", emoji: "🍗", color: "#8B0000" },
+  { name: "Pav Bhaji", city: "Mumbai", desc: "Buttery mashed vegetable curry served with soft butter-toasted buns.", emoji: "🍲", color: "#FF8C00" },
+  { name: "Sol Kadhi", city: "Konkan Coast", desc: "Refreshing pink drink made from kokum and coconut milk — perfect for hot days.", emoji: "🍹", color: "#FF69B4" },
+  { name: "Malvani Fish Curry", city: "Sindhudurg / Ratnagiri", desc: "Coconut-based fish curry with Malvani masala — the soul of Konkan cuisine.", emoji: "🐟", color: "#006994" },
+  { name: "Zunka Bhakri", city: "Rural Maharashtra", desc: "Traditional meal of besan (chickpea flour) curry with jowar flatbread — farmer's delight.", emoji: "🌾", color: "#8B6914" }
+];
