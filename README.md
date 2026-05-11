@@ -15,14 +15,6 @@ A modern, interactive web project showcasing the cities, culture, heritage, cuis
 
 ---
 
-## 📂 Project Structure
-Maharashtra-Explorer/
-│── index.html
-│── style.css
-│── app.js
-│── data.js
----
-
 ## 🚀 Technologies Used
 
 - HTML5
