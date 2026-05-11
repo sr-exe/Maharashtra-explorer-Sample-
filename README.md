@@ -33,7 +33,7 @@ Maharashtra-Explorer/
 ---
 ## 🚀 Live Demo
 
-Visit the live website: [view🫶](https://sr-exe.github.io/portfolio-website/) --->>
+Visit the live website: [view🫶](https://sr-exe.github.io/Maharashtra-explorer-Sample-/) --->>
 
 
 
