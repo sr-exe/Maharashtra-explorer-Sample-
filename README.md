@@ -47,4 +47,4 @@ Visit the live website: [view🫶](https://sr-exe.github.io/Maharashtra-explorer
 
 3. Run the project:
 4. Just open index.html in your browser
-5. 
+   
